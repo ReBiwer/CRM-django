@@ -38,12 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'crm_system.active_clients.apps.ActiveClientsConfig'
-    'crm_system.advertising_companies.apps.AdvertisingCompaniesConfig',
-    'crm_system.auth.apps.AuthConfig',
-    'crm_system.contracts.apps.ContractsConfig',
-    'crm_system.potential_clients.apps.PotentialClientsConfig',
-    'crm_system.services.apps.ServicesConfig',
+    'active_clients.apps.ActiveClientsConfig',
+    'advertising_companies.apps.AdvertisingCompaniesConfig',
+    'contracts.apps.ContractsConfig',
+    'potential_clients.apps.PotentialClientsConfig',
+    'services.apps.ServicesConfig',
 ]
 
 MIDDLEWARE = [
