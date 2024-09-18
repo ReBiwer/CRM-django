@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{% static 'style.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>CRM</title>
+</head>
+<body>
+
+<div class="main-container d-flex">
+    <div class="sidebar" id="side_nav">
+        <div class="header-box px-3 pt-4 pb-4">
+            <h1 class="fs-4 nav-logo">
+                <span class="text-black text-uppercase font-weight-bold">
+                    <a class="link-dark text-decoration-none" href="/">CRM BACKOFFICE</a>
+                </span>
+            </h1>
+        </div>
+        <ul class="list-unstyled px-2">
+            {% if perms.products.view_product %}
+            <li><a href="/products/" class="bar-item text-decoration-none px-3 py-3 d-block">
+                <span><i class="fas fa-microchip"></i></span><span class="ml-1"> Услуги</span>
+            </a></li>
+            {% endif %}
+            {% if perms.advertisements.view_advertisement %}
+            <li><a href="/ads/" class="bar-item text-decoration-none px-3 py-3 d-block">
+                <span><i class="fas fa-ad"></i></span><span class="ml-1"> Рекламные компании</span>
+            </a></li>
+            {% endif %}
+            {% if perms.leads.view_lead %}
+            <li><a href="/leads/" class="bar-item text-decoration-none px-3 py-3 d-block">
+                <span><i class="fas fa-user-clock"></i></span><span class="px-1"> Лиды</span>
+            </a></li>
+            {% endif %}
+            {% if perms.contracts.view_contract %}
+            <li><a href="/contracts/" class="bar-item text-decoration-none px-3 py-3 d-block">
+                <span><i class="fas fa-file-alt"></i></span><span class="px-1"> Контракты</span>
+            </a></li>
+            {% endif %}
+            {% if perms.customers.view_customer %}
+            <li><a href="/customers/" class="bar-item text-decoration-none px-3 py-3 d-block">
+                <span><i class="fas fa-user-check"></i></span><span class="px-1"> Активные клиенты</span>
+            </a></li>
+            {% endif %}
+            <li>
+                <hr>
+            </li>
+            <li><a href="/accounts/logout" class="bar-item text-decoration-none px-3 py-3 d-block">
+                <span><i class="fas fa-sign-out-alt"></i></span><span class="px-1"> Выход</span>
+            </a></li>
+        </ul>
+    </div>
+    <div class="content px-3 pt-4">
+        {% block content %}{% endblock %}
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
