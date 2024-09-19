@@ -1,5 +1,6 @@
 from django.views.generic import DetailView, CreateView, DeleteView, UpdateView, ListView
 from django.urls import reverse_lazy, reverse
+from django.template import RequestContext
 
 from .models import Product
 
@@ -8,7 +9,7 @@ class CreateProductView(CreateView):
     model = Product
     fields = '__all__'
     template_name = 'products/products-create.html'
-    success_url = reverse_lazy('products:products_list')
+    success_url = reverse_lazy('products:products')
 
 
 class DetailProductView(DetailView):
@@ -25,7 +26,7 @@ class ListProductView(ListView):
 class DeleteProductView(DeleteView):
     model = Product
     template_name = 'products/products-delete.html'
-    success_url = reverse_lazy('products:products_list')
+    success_url = reverse_lazy('products:products')
 
 
 class UpdateProductView(UpdateView):
