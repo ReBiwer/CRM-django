@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'contracts.apps.ContractsConfig',
     'potential_clients.apps.PotentialClientsConfig',
     'products.apps.ServicesConfig',
+    'authorization.apps.AuthorizationConfig',
 ]
 
 MIDDLEWARE = [
