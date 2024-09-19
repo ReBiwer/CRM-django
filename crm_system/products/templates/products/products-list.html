@@ -11,7 +11,7 @@
             {% for product in products %}
             <li class="list-group-item list-group-item-light d-flex justify-content-between">
                 <a href="/products/detail/{{ product.pk }}" class="text-decoration-none link-dark">{{ product.name }}</a>
-                <a href="/products/{{ product.pk }}/delete" class="btn btn-danger">Удалить</a>
+                <a href="/products/delete/{{ product.pk }}" class="btn btn-danger">Удалить</a>
             </li>
             {% endfor %}
         </ul>

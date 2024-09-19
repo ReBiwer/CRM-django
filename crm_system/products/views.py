@@ -20,3 +20,10 @@ class ListProductView(ListView):
     queryset = Product.objects.all()
     context_object_name = 'products'
     template_name = 'products/products-list.html'
+
+
+class DeleteProductView(DeleteView):
+    model = Product
+    template_name = 'products/products-delete.html'
+    success_url = reverse_lazy('products:products_list')
+
