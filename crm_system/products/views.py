@@ -1,5 +1,5 @@
 from django.views.generic import DetailView, CreateView, DeleteView, UpdateView, ListView
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 
 from .models import Product
 
@@ -26,4 +26,16 @@ class DeleteProductView(DeleteView):
     model = Product
     template_name = 'products/products-delete.html'
     success_url = reverse_lazy('products:products_list')
+
+
+class UpdateProductView(UpdateView):
+    model = Product
+    template_name = 'products/products-update.html'
+    fields = '__all__'
+
+    def get_success_url(self):
+        return reverse(
+            'products:products_detail',
+            kwargs={'pk': self.object.pk}
+        )
 
