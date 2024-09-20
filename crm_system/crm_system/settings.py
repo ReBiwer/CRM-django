@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'accounts.apps.AuthorizationConfig',
-    'active_clients.apps.ActiveClientsConfig',
+    'customers.apps.CustomersConfig',
     'ads.apps.AdsConfig',
     'contracts.apps.ContractsConfig',
     'leads.apps.LeadsConfig',
