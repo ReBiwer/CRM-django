@@ -39,9 +39,9 @@ INSTALLED_APPS = [
 
     'accounts.apps.AuthorizationConfig',
     'active_clients.apps.ActiveClientsConfig',
-    'ads.apps.AdvertisingCompaniesConfig',
+    'ads.apps.AdsConfig',
     'contracts.apps.ContractsConfig',
-    'leads.apps.PotentialClientsConfig',
+    'leads.apps.LeadsConfig',
     'products.apps.ServicesConfig',
 ]
 
