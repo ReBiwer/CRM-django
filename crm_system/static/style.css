@@ -40,3 +40,17 @@ body {
     float: left;
     font-size: 9rem;
 }
+
+.btn-logout {
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    outline: none;
+    width: 100%;
+    text-align: left;
+}
+
+/* Стили при наведении на кнопку-ссылку */
+.btn-logout:hover {
+    color: #000;
+    background: #eee;
+}

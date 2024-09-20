@@ -53,7 +53,7 @@
             <li>
                 <form action="{% url 'accounts:logout' %}" method="post">
                     {% csrf_token %}
-                <button type="submit" class="bar-item text-decoration-none px-3 py-3 d-block">
+                <button type="submit" class="btn-logout bar-item text-decoration-none px-3 py-3 d-block">
                 <span><i class="fas fa-sign-out-alt"></i></span><span class="px-1"> Выход</span>
             </button></form></li>
         </ul>
