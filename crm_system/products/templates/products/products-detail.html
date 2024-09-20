@@ -9,6 +9,7 @@
             <div class="card-body">
                 <h5 class="card-title fw-bold">{{ object.name }}</h5>
                 <p class="card-text">{{ object.description }}</p>
+                <p class="card-text">{{ object.created_by.username }}</p>
                 <div class="d-flex justify-content-end fw-bold">{{ object.cost }}руб</div>
                 <div class="d-flex justify-content-center fw-bold">
                     <a href="/products/update/{{ object.pk }}/" class="btn btn-primary">Редактировать</a>

@@ -17,7 +17,7 @@ class PermissionOperator(PermissionRequiredMixin):
 
 class CreateProductView(PermissionOperator, CreateView):
     model = Product
-    fields = '__all__'
+    fields = 'name', 'description', 'cost'
     template_name = 'products/products-create.html'
     success_url = reverse_lazy('products:products')
 
