@@ -1,0 +1,20 @@
+{% extends "_base.html" %}
+
+{% block content %}
+<h2 class="fw-bold">Лиды</h2>
+<div class="row bg-white px-3 py-3 mx-2 my-5 rounded pb-5 shadow-lg">
+    <div class="hstack gap-3 pb-4">
+        <a href="/leads/new" class="btn btn-success p-2">Создать</a>
+    </div>
+    <div class="col">
+        <ul class="list-group">
+            {% for lead in leads %}
+            <li class="list-group-item list-group-item-light d-flex justify-content-between">
+                <a href="/leads/{{ lead.pk }}" class="text-decoration-none link-dark">{{ lead.last_name }} {{ lead.first_name }}</a>
+                <a href="/leads/{{ lead.pk }}/delete" class="btn btn-danger">Удалить</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

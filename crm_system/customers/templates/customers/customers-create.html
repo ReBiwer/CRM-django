@@ -1,0 +1,16 @@
+{% extends "_base.html" %}
+
+{% block content %}
+<h2 class="fw-bold">Создание активного клиента</h2>
+<div class="row bg-white px-3 py-3 mx-2 my-5 rounded pb-5 shadow-lg">
+    <div class="col"></div>
+    <div class="col">
+        <form method="POST" action="/customers/new/">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Создать</button>
+        </form>
+    </div>
+    <div class="col"></div>
+</div>
+{% endblock %}

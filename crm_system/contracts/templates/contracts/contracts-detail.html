@@ -1,0 +1,21 @@
+{% extends "_base.html" %}
+
+{% block content %}
+<h2 class="fw-bold">Детальная информация о контракте</h2>
+<div class="row bg-white px-3 py-3 mx-2 my-5 rounded pb-5 shadow-lg">
+    <div class="col"></div>
+    <div class="col">
+        <div class="card border-dark shadow" style="background: #eee">
+            <div class="card-body">
+                <h5 class="card-title fw-bold">{{ object.name }}</h5>
+                <p class="card-text">{{ object.product.name }}. С {{ object.start_date }} по {{ object.end_date }}</p>
+                <div class="d-flex justify-content-end fw-bold">{{ object.cost }}руб</div>
+                <div class="d-flex justify-content-center fw-bold">
+                    <a href="/contracts/{{ object.pk }}/edit" class="btn btn-primary">Редактировать</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col"></div>
+</div>
+{% endblock %}

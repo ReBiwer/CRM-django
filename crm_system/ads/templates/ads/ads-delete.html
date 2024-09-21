@@ -1,0 +1,17 @@
+{% extends "_base.html" %}
+
+{% block content %}
+<h2 class="fw-bold">Удаление рекламной компании</h2>
+<div class="row bg-white px-3 py-3 mx-2 my-5 rounded pb-5 shadow-lg">
+    <div class="col"></div>
+    <div class="col">
+        <p>Вы уверены что хотите удалить "{{ object.name }}"?</p>
+        <form method="POST" action="/ads/{{ object.pk }}/delete/">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-danger">Удалить</button>
+        </form>
+    </div>
+    <div class="col"></div>
+</div>
+{% endblock %}
