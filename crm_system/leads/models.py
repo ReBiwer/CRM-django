@@ -9,6 +9,7 @@ class Lead(models.Model):
     first_name = models.CharField(max_length=150)
     surname = models.CharField(max_length=150)
     last_name = models.CharField(max_length=150)
+    email = models.EmailField(null=True, blank=True)
     phone = PhoneNumberField(blank=True, region='RU')
 
     if TYPE_CHECKING:
