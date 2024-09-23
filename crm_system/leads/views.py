@@ -9,7 +9,7 @@ class CreateLeadView(CreateView):
     model = Lead
     fields = '__all__'
     template_name = 'leads/leads-create.html'
-    success_url = reverse_lazy('leads:leads')
+    success_url = reverse_lazy('leads:leads_list')
 
 
 class ListLeadsView(ListView):
