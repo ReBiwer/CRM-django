@@ -10,8 +10,8 @@
         <ul class="list-group">
             {% for lead in leads %}
             <li class="list-group-item list-group-item-light d-flex justify-content-between">
-                <a href="/leads/{{ lead.pk }}" class="text-decoration-none link-dark">{{ lead.last_name }} {{ lead.first_name }}</a>
-                <a href="/leads/{{ lead.pk }}/delete" class="btn btn-danger">Удалить</a>
+                <a href="/leads/detail/{{ lead.pk }}" class="text-decoration-none link-dark">{{ lead.last_name }} {{ lead.first_name }}</a>
+                <a href="/leads/delete/{{ lead.pk }}" class="btn btn-danger">Удалить</a>
             </li>
             {% endfor %}
         </ul>
