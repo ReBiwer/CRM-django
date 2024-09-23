@@ -1,21 +1,11 @@
-from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.views.generic import DetailView, CreateView, DeleteView, UpdateView, ListView
 from django.urls import reverse_lazy, reverse
-from django.template import RequestContext
 
+from crm_system.permissions import PermissionMarketer
 from .models import Product
 
 
-class PermissionOperator(PermissionRequiredMixin):
-    permission_required = [
-        'products.add_product',
-        'products.change_product',
-        'products.delete_product',
-        'products.view_product'
-    ]
-
-
-class CreateProductView(PermissionOperator, CreateView):
+class CreateProductView(PermissionMarketer, CreateView):
     model = Product
     fields = 'name', 'description', 'cost'
     template_name = 'products/products-create.html'
@@ -26,24 +16,24 @@ class CreateProductView(PermissionOperator, CreateView):
         return super().form_valid(form)
 
 
-class DetailProductView(PermissionOperator, DetailView):
+class DetailProductView(PermissionMarketer, DetailView):
     model = Product
     template_name = 'products/products-detail.html'
 
 
-class ListProductView(PermissionOperator, ListView):
+class ListProductView(PermissionMarketer, ListView):
     queryset = Product.objects.all()
     context_object_name = 'products'
     template_name = 'products/products-list.html'
 
 
-class DeleteProductView(PermissionOperator, DeleteView):
+class DeleteProductView(PermissionMarketer, DeleteView):
     model = Product
     template_name = 'products/products-delete.html'
     success_url = reverse_lazy('products:products')
 
 
-class UpdateProductView(PermissionOperator, UpdateView):
+class UpdateProductView(PermissionMarketer, UpdateView):
     model = Product
     template_name = 'products/products-update.html'
     fields = '__all__'
