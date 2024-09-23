@@ -7,4 +7,8 @@ class PermissionMarketer(PermissionRequiredMixin):
         'products.change_product',
         'products.delete_product',
         'products.view_product',
+        'ads.add_ads',
+        'ads.change_ads',
+        'ads.delete_ads',
+        'ads.view_ads',
     ]
