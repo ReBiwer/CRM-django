@@ -57,6 +57,9 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'crm_system.urls'
 
+DATE_INPUT_FORMATS = ['%d.%m.%Y']
+DATE_FORMAT = ['%d.%m.%Y']
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

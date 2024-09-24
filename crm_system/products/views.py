@@ -22,7 +22,7 @@ class DetailProductView(PermissionMarketer, DetailView):
 
 
 class ListProductView(PermissionMarketer, ListView):
-    queryset = Product.objects.all()
+    queryset = Product.objects.select_related('created_by').all()
     context_object_name = 'products'
     template_name = 'products/products-list.html'
 
@@ -36,7 +36,7 @@ class DeleteProductView(PermissionMarketer, DeleteView):
 class UpdateProductView(PermissionMarketer, UpdateView):
     model = Product
     template_name = 'products/products-update.html'
-    fields = '__all__'
+    fields = 'name', 'description', 'cost'
 
     def get_success_url(self):
         return reverse(

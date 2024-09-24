@@ -6,7 +6,7 @@
     <div class="col"></div>
     <div class="col">
         <p>Вы уверены что хотите удалить "{{ object.name }}"?</p>
-        <form method="POST" action="/contracts/{{ object.pk }}/delete/">
+        <form method="POST" action="/contracts/delete/{{ object.pk }}/">
             {% csrf_token %}
             {{ form.as_p }}
             <button type="submit" class="btn btn-danger">Удалить</button>
