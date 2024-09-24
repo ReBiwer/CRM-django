@@ -10,6 +10,8 @@ class Contract(models.Model):
     description = models.TextField(null=True, blank=True)
     cost = models.DecimalField(default=0, max_digits=8, decimal_places=2)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    start_date = models.DateField(null=True)
+    end_date = models.DateField(null=True)
 
     if TYPE_CHECKING:
         objects: Manager
