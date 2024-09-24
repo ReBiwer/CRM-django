@@ -3,11 +3,11 @@ from django.urls import reverse_lazy, reverse
 
 # from crm_system.permissions import PermissionManager
 from .models import Contract
+from .forms import ContractForm
 
 
 class CreateContactView(CreateView):
-    model = Contract
-    fields = 'name', 'description', 'cost', 'start_date', 'end_date'
+    form_class = ContractForm
     template_name = 'contracts/contracts-create.html'
     success_url = reverse_lazy('contracts:contracts')
 
