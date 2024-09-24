@@ -35,8 +35,13 @@ class DeleteContractView(DeleteView):
 
 class UpdateContractView(UpdateView):
     model = Contract
+    form_class = ContractForm
     template_name = 'contracts/contracts-update.html'
-    fields = 'name', 'description', 'cost', 'start_date', 'end_date'
+
+    def form_valid(self, form):
+        form.instance.created_by = self.object.created_by
+        return super().form_valid(form)
+
 
     def get_success_url(self):
         return reverse(

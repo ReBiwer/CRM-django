@@ -5,7 +5,7 @@
 <div class="row bg-white px-3 py-3 mx-2 my-5 rounded pb-5 shadow-lg">
     <div class="col"></div>
     <div class="col">
-        <form method="POST" action="/contracts/update/{{ object.pk }}">
+        <form method="POST" action="/contracts/update/{{ object.pk }}/">
             {% csrf_token %}
             {{ form.as_p }}
             <button type="submit" class="btn btn-primary">Применить</button>
