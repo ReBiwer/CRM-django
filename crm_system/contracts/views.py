@@ -18,13 +18,13 @@ class CreateContactView(PermissionRequiredMixin, CreateView):
 
 
 class DetailContractView(PermissionRequiredMixin, DetailView):
-    model = Contract
+    queryset = Contract.objects.select_related('created_by').all()
     template_name = 'contracts/contracts-detail.html'
     permission_required = ['contracts.view_contract']
 
 
 class ListContractView(PermissionRequiredMixin, ListView):
-    queryset = Contract.objects.select_related('created_by').all()
+    queryset = Contract.objects.all()
     context_object_name = 'contracts'
     template_name = 'contracts/contracts-list.html'
     permission_required = ['contracts.view_contract']
