@@ -10,7 +10,7 @@ class CustomerForm(forms.ModelForm):
 
     class Meta:
         model = Customer
-        fields = ['lead', 'contracts']
+        fields = ['lead', 'customer_contract']
 
     def save(self, commit=True):
         customer = super().save(commit=False)
