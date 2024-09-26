@@ -13,3 +13,6 @@ class Ads(models.Model):
 
     if TYPE_CHECKING:
         objects: Manager
+
+    def __str__(self):
+        return f'{self.name}'
