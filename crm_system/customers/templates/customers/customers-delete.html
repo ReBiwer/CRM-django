@@ -5,8 +5,8 @@
 <div class="row bg-white px-3 py-3 mx-2 my-5 rounded pb-5 shadow-lg">
     <div class="col"></div>
     <div class="col">
-        <p>Вы уверены что хотите удалить "{{ object.lead.last_name }} {{ object.lead.first_name }}"?</p>
-        <form method="POST" action="/customers/{{ object.pk }}/delete/">
+        <p>Вы уверены что хотите удалить "{{ object.last_name }} {{ object.first_name }}"?</p>
+        <form method="POST" action="/customers/delete/{{ object.pk }}/">
             {% csrf_token %}
             {{ form.as_p }}
             <button type="submit" class="btn btn-danger">Удалить</button>
