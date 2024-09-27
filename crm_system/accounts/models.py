@@ -10,7 +10,6 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=100, null=True, blank=True)
     second_name = models.CharField(max_length=100, null=True, blank=True)
-    products = models.ForeignKey(Product, on_delete=models.CASCADE, null=True, blank=True)
 
     if TYPE_CHECKING:
         objects: Manager

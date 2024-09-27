@@ -18,3 +18,6 @@ class Customer(models.Model):
 
     if TYPE_CHECKING:
         objects: Manager
+
+    def __str__(self):
+        return f'{self.first_name} {self.surname}'
