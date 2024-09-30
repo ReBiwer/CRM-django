@@ -5,12 +5,14 @@ from ads.models import Ads
 from leads.models import Lead
 from customers.models import Customer
 
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 
 class MyLogoutView(LogoutView):
     next_page = reverse_lazy('accounts:login')
 
 
-class IndexView(TemplateView):
+class IndexView(LoginRequiredMixin, TemplateView):
     template_name = 'accounts/index.html'
 
     def get_context_data(self, **kwargs):
