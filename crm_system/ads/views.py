@@ -60,12 +60,15 @@ class StatisticAdsView(TemplateView):
             sum_cost_contracts = 0
             for customer in Customer.objects.filter(ad=ad.pk):
                 sum_cost_contracts += customer.contract.cost
+            count_leads = Lead.objects.filter(ad=ad.pk).count()
+            count_customers = Customer.objects.filter(ad=ad.pk).count()
+            attitude_contracts_budget = sum_cost_contracts / ad.budget
             list_statistic.append(
                 (
                     ad,
-                    Lead.objects.filter(ad=ad.pk).count(),
-                    Customer.objects.filter(ad=ad.pk).count(),
-                    sum_cost_contracts / ad.budget,
+                    count_leads,
+                    count_customers,
+                    attitude_contracts_budget,
                 )
             )
         context['statistic'] = list_statistic
