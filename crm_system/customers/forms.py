@@ -22,6 +22,5 @@ class CustomerForm(forms.ModelForm):
         customer.ad = self.cleaned_data['lead'].ad
         customer.contract = self.cleaned_data['customer_contract']
         if commit:
-            self.cleaned_data['lead'].delete()
             customer.save()
         return customer
