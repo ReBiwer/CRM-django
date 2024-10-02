@@ -8,4 +8,12 @@ class ContractForm(forms.ModelForm):
 
     class Meta:
         model = Contract
-        fields = ['name', 'description', 'cost', 'start_date', 'end_date', 'start_date', 'end_date']
+        fields = [
+            'name',
+            'description',
+            'cost',
+            'start_date',
+            'end_date',
+            'start_date',
+            'end_date'
+        ]
