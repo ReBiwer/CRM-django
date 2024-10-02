@@ -6,6 +6,12 @@ from django.db.models import Manager
 
 
 class Product(models.Model):
+    """Модель представляющая услугу
+    name: название услуги
+    description: описание услуги
+    cost: стоимость услуги
+    created_by: кто создал эту услугу
+    """
     name = models.CharField(max_length=100)
     description = models.TextField(null=True, blank=True)
     cost = models.DecimalField(default=0, max_digits=8, decimal_places=2)
