@@ -61,7 +61,7 @@ ROOT_URLCONF = 'crm_system.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR, 'base_templates'],
+        'DIRS': [os.path.join(BASE_DIR, 'crm_system', 'base_templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
