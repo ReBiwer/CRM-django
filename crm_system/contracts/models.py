@@ -11,6 +11,16 @@ def contract_directory_path(instance: 'Contract', filename: str) -> str:
 
 
 class Contract(models.Model):
+    """Модель контракта
+    name: название контракта
+    product: услуга на которую заключается контракт
+    document: документ с контрактом
+    description: описание контракта
+    cost: стоимость контракта
+    created_by: создатель контракта
+    start_date: начало действия контракта
+    end_date: конец действия контракта
+    """
     name = models.CharField(max_length=100)
     product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True)
     document = models.FileField(upload_to=contract_directory_path, null=True)

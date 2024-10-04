@@ -7,6 +7,8 @@ from ads.models import Ads
 
 
 class Lead(models.Model):
+    """Модель представляющая собой потенциального клиента (лида)
+    пришедшего с рекламной компании"""
     first_name = models.CharField(max_length=150)
     surname = models.CharField(max_length=150)
     last_name = models.CharField(max_length=150)

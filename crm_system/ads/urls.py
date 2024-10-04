@@ -1,6 +1,13 @@
 from django.urls import path
 
-from .views import ListAdsView, StatisticAdsView, CreateAdsView, DetailAdsView, UpdateAdsView, DeleteAdsView
+from .views import (
+    ListAdsView,
+    StatisticAdsView,
+    CreateAdsView,
+    DetailAdsView,
+    UpdateAdsView,
+    DeleteAdsView
+)
 
 app_name = 'ads'
 

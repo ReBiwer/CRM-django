@@ -6,27 +6,31 @@ from .forms import CustomerForm
 from .models import Customer
 
 
-class CreateCustomerView(PermissionRequiredMixin, CreateView):
-    form_class = CustomerForm
-    template_name = 'customers/customers-create.html'
-    success_url = reverse_lazy('customers:customers')
-    permission_required = ['customers.add_customer']
-
-
-class DetailCustomerView(PermissionRequiredMixin, DetailView):
-    queryset = Customer.objects.select_related('ad', 'contract')
-    template_name = 'customers/customers-detail.html'
-    permission_required = ['customers.view_customer']
-
-
 class ListCustomerView(PermissionRequiredMixin, ListView):
+    """Представление для отображения всех активных клиентов"""
     queryset = Customer.objects.all()
     context_object_name = 'customers'
     template_name = 'customers/customers-list.html'
     permission_required = ['customers.view_customer']
 
 
+class DetailCustomerView(PermissionRequiredMixin, DetailView):
+    """Представление для отображения деталей активного клиента"""
+    queryset = Customer.objects.select_related('ad', 'contract')
+    template_name = 'customers/customers-detail.html'
+    permission_required = ['customers.view_customer']
+
+
+class CreateCustomerView(PermissionRequiredMixin, CreateView):
+    """Представление для создания активного клиента"""
+    form_class = CustomerForm
+    template_name = 'customers/customers-create.html'
+    success_url = reverse_lazy('customers:customers')
+    permission_required = ['customers.add_customer']
+
+
 class DeleteCustomerView(PermissionRequiredMixin, DeleteView):
+    """Представление для удаления активного клиента"""
     model = Customer
     template_name = 'customers/customers-delete.html'
     success_url = reverse_lazy('customers:customers')
@@ -34,6 +38,7 @@ class DeleteCustomerView(PermissionRequiredMixin, DeleteView):
 
 
 class UpdateCustomerView(PermissionRequiredMixin, UpdateView):
+    """Представление для обновления активного клиента"""
     model = Customer
     fields = '__all__'
     template_name = 'customers/customers-update.html'

@@ -8,6 +8,16 @@ from contracts.models import Contract
 
 
 class Customer(models.Model):
+    """
+    Модель представляющая активного клиента
+    first_name: имя
+    surname: фамилия
+    last_name: отчество
+    email: электронная почта
+    phone: номер телефона
+    ad: рекламная компания откуда пришел клиент
+    contract: контракт с клиентом
+    """
     first_name = models.CharField(max_length=150)
     surname = models.CharField(max_length=150)
     last_name = models.CharField(max_length=150)

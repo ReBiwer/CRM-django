@@ -6,7 +6,23 @@ from .models import Contract
 from .forms import ContractForm
 
 
+class ListContractView(PermissionRequiredMixin, ListView):
+    """Представление для отображения всех контрактов"""
+    queryset = Contract.objects.all()
+    context_object_name = 'contracts'
+    template_name = 'contracts/contracts-list.html'
+    permission_required = ['contracts.view_contract']
+
+
+class DetailContractView(PermissionRequiredMixin, DetailView):
+    """Представление для отображения деталей контракта"""
+    queryset = Contract.objects.select_related('created_by')
+    template_name = 'contracts/contracts-detail.html'
+    permission_required = ['contracts.view_contract']
+
+
 class CreateContactView(PermissionRequiredMixin, CreateView):
+    """Представление для создания контрактов"""
     form_class = ContractForm
     template_name = 'contracts/contracts-create.html'
     success_url = reverse_lazy('contracts:contracts')
@@ -17,20 +33,8 @@ class CreateContactView(PermissionRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-class DetailContractView(PermissionRequiredMixin, DetailView):
-    queryset = Contract.objects.select_related('created_by')
-    template_name = 'contracts/contracts-detail.html'
-    permission_required = ['contracts.view_contract']
-
-
-class ListContractView(PermissionRequiredMixin, ListView):
-    queryset = Contract.objects.all()
-    context_object_name = 'contracts'
-    template_name = 'contracts/contracts-list.html'
-    permission_required = ['contracts.view_contract']
-
-
 class DeleteContractView(PermissionRequiredMixin, DeleteView):
+    """Представление для удаления контрактов"""
     model = Contract
     template_name = 'contracts/contracts-delete.html'
     success_url = reverse_lazy('contracts:contracts')
@@ -38,6 +42,7 @@ class DeleteContractView(PermissionRequiredMixin, DeleteView):
 
 
 class UpdateContractView(PermissionRequiredMixin, UpdateView):
+    """Представление для обновления контрактов"""
     model = Contract
     form_class = ContractForm
     template_name = 'contracts/contracts-update.html'
