@@ -3,8 +3,6 @@ from django.urls import reverse_lazy, reverse
 
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from .models import Ads
-from functools import reduce
-from decimal import Decimal
 from leads.models import Lead
 from customers.models import Customer
 
