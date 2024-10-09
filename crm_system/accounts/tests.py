@@ -1,7 +1,7 @@
 from django.test import TestCase
 
 from django.urls import reverse
-from django.contrib.auth.models import User, Group
+from django.contrib.auth.models import User
 from products.models import Product
 from ads.models import Ads
 from leads.models import Lead
@@ -14,18 +14,17 @@ class TestAppAccounts(TestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.test_operator: User = User.objects.create_user(
-            username='operator',
+        cls.test_user: User = User.objects.create_user(
+            username='user',
             password='qwerty123@'
         )
-        cls.test_operator.groups.add(Group.objects.get(name='Operator'))
 
     @classmethod
     def tearDownClass(cls):
-        cls.test_operator.delete()
+        cls.test_user.delete()
 
     def setUp(self):
-        self.client.force_login(self.test_operator)
+        self.client.force_login(self.test_user)
 
     def test_index(self):
         response = self.client.get(reverse('accounts:account_index'))
