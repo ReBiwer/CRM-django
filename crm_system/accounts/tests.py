@@ -26,6 +26,9 @@ class TestAppAccounts(TestCase):
     def setUp(self):
         self.client.force_login(self.test_user)
 
+    def tearDown(self):
+        self.client.logout()
+
     def test_index(self):
         response = self.client.get(reverse('accounts:account_index'))
         self.assertEqual(response.status_code, 200)
