@@ -1,6 +1,7 @@
 from django.views.generic import DetailView, CreateView, DeleteView, UpdateView, ListView, TemplateView
 from django.urls import reverse_lazy, reverse
 
+from decimal import Decimal
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from .models import Ads
 from leads.models import Lead
@@ -60,13 +61,13 @@ class StatisticAdsView(TemplateView):
                 sum_cost_contracts += customer.contract.cost
             count_leads = Lead.objects.filter(ad=ad.pk).count()
             count_customers = Customer.objects.filter(ad=ad.pk).count()
-            attitude_contracts_budget = sum_cost_contracts / ad.budget
+            attitude_contracts_budget: Decimal = sum_cost_contracts / ad.budget
             list_statistic.append(
                 (
                     ad,
                     count_leads,
                     count_customers,
-                    attitude_contracts_budget,
+                    attitude_contracts_budget.quantize(Decimal('1.00')),
                 )
             )
         context['statistic'] = list_statistic
