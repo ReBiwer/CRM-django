@@ -7,7 +7,7 @@
         <ul class="list-group">
             {% for ad, leads_count, customers_count, profit in statistic %}
             <li class="list-group-item list-group-item-light d-flex justify-content-between">
-                <a href="/ads/{{ ad.pk }}" class="text-decoration-none link-dark">{{ ad.name }}</a>
+                <a href="/ads/detail/{{ ad.pk }}" class="text-decoration-none link-dark">{{ ad.name }}</a>
                 <p>Лидов: {{ leads_count }} | Активных клиентов: {{ customers_count }} | Соотношение контрактов к затратам: {{ profit|default_if_none:"-" }}</p>
             </li>
             {% endfor %}
