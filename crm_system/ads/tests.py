@@ -112,9 +112,9 @@ class TestAppAds(TestCase):
                 'budget': 15000,
             }
             response_with_data = self.client.post(
-                reverse('ads:ad_create'),
+                reverse('ads:ad_update', kwargs={'pk': self.test_ad.pk}),
                 data=form_data,
-                follow=True
+                follow=True,
             )
             self.assertEqual(response_with_data.status_code, 200)
             self.assertTrue(Ads.objects.filter(name=form_data['name']).exists())
