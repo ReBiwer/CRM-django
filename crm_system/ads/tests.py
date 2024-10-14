@@ -37,6 +37,7 @@ class TestAppAds(TestCase):
     def tearDownClass(cls):
         cls.test_marketer.delete()
         cls.test_product.delete()
+        cls.test_ad.delete()
 
     def setUp(self):
         self.client.force_login(self.test_marketer)
