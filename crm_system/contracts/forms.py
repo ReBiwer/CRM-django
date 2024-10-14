@@ -10,10 +10,10 @@ class ContractForm(forms.ModelForm):
         model = Contract
         fields = [
             'name',
+            'product',
+            'document',
             'description',
             'cost',
             'start_date',
             'end_date',
-            'start_date',
-            'end_date'
         ]
