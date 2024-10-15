@@ -1,0 +1,38 @@
+[
+{
+    "model": "leads.lead",
+    "pk": 1,
+    "fields": {
+        "first_name": "Владимир",
+        "surname": "Николаевич",
+        "last_name": "Быков",
+        "email": "bykovvn@yandex.ru",
+        "phone": "+79091222222",
+        "ad": 1
+    }
+},
+{
+    "model": "leads.lead",
+    "pk": 2,
+    "fields": {
+        "first_name": "Екатерина",
+        "surname": "Андреевна",
+        "last_name": "Быкова",
+        "email": "ekaterinka@mail.ru",
+        "phone": "+79093333333",
+        "ad": 2
+    }
+},
+{
+    "model": "leads.lead",
+    "pk": 3,
+    "fields": {
+        "first_name": "Светлана",
+        "surname": "Геннадьевна",
+        "last_name": "Быкова",
+        "email": "bsg208@mail.ru",
+        "phone": "+79124444444",
+        "ad": 1
+    }
+}
+]

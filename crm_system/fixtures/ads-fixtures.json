@@ -1,0 +1,22 @@
+[
+{
+    "model": "ads.ads",
+    "pk": 1,
+    "fields": {
+        "name": "ООО \"ОкнаМонтаж\"",
+        "product": 1,
+        "channel": "YandexDirect",
+        "budget": "24997.00"
+    }
+},
+{
+    "model": "ads.ads",
+    "pk": 2,
+    "fields": {
+        "name": "ИП Пуканюк",
+        "product": 2,
+        "channel": "ВКонтакте",
+        "budget": "10000.00"
+    }
+}
+]
