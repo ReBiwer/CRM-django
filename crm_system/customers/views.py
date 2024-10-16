@@ -43,3 +43,9 @@ class UpdateCustomerView(PermissionRequiredMixin, UpdateView):
     fields = '__all__'
     template_name = 'customers/customers-update.html'
     permission_required = ['customers.change_customer']
+
+    def get_success_url(self):
+        return reverse(
+            'customers:customer_detail',
+            kwargs={'pk': self.object.pk}
+        )
