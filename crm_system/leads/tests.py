@@ -104,7 +104,9 @@ class TestLeadApp(TestCase):
                 follow=True,
             )
             self.assertEqual(response_with_data.status_code, 200)
-            self.assertTrue(Lead.objects.filter(first_name=form_data['first_name']))
+            self.assertTrue(
+                Lead.objects.filter(first_name=form_data['first_name']).exists()
+            )
 
     def test_delete_lead_view(self):
         with self.subTest('Test get method'):
